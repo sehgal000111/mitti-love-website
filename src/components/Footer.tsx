@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Phone, Pot, Leaf } from "lucide-react";
+import { Phone, Coffee, Leaf } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -57,7 +57,7 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Pot className="h-5 w-5 mt-1 text-terracotta-light" />
+                <Coffee className="h-5 w-5 mt-1 text-terracotta-light" />
                 <div>
                   <p className="font-semibold">WhatsApp:</p>
                   <a 

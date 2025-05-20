@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Phone, Pot } from "lucide-react";
+import { Phone, Coffee } from "lucide-react";
 
 const ContactCTA = () => {
   return (
@@ -19,7 +19,7 @@ const ContactCTA = () => {
               asChild
             >
               <a href="https://wa.me/919149958270" target="_blank" rel="noreferrer">
-                <Pot className="h-5 w-5" />
+                <Coffee className="h-5 w-5" />
                 Buy Now on WhatsApp
               </a>
             </Button>

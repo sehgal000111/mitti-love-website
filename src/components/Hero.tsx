@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Pot, Phone } from "lucide-react";
+import { Coffee, Phone } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -32,7 +32,7 @@ const Hero = () => {
               asChild
             >
               <a href="https://wa.me/919149958270" target="_blank" rel="noreferrer">
-                <Pot className="h-5 w-5" />
+                <Coffee className="h-5 w-5" />
                 Buy Now on WhatsApp
               </a>
             </Button>
