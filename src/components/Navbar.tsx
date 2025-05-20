@@ -2,41 +2,60 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Helper to check if a link is active
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
   };
 
   return (
     <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <span className="text-2xl font-lora font-bold text-terracotta">
             Mitti<span className="text-eco-dark">Se</span>Love
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#" className="text-earth-dark hover:text-terracotta-dark transition-colors">
+          <Link 
+            to="/" 
+            className={`${isActive('/') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+          >
             Home
-          </a>
-          <a href="#products" className="text-earth-dark hover:text-terracotta-dark transition-colors">
+          </Link>
+          <Link 
+            to="/products" 
+            className={`${isActive('/products') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+          >
             Products
-          </a>
-          <a href="#benefits" className="text-earth-dark hover:text-terracotta-dark transition-colors">
-            Benefits
-          </a>
-          <a href="#testimonials" className="text-earth-dark hover:text-terracotta-dark transition-colors">
-            Testimonials
-          </a>
-          <a href="#contact" className="text-earth-dark hover:text-terracotta-dark transition-colors">
+          </Link>
+          <Link 
+            to="/about" 
+            className={`${isActive('/about') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+          >
+            About
+          </Link>
+          <Link 
+            to="/contact" 
+            className={`${isActive('/contact') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+          >
             Contact
-          </a>
+          </Link>
         </div>
 
         {/* Call to Order Button (Desktop) */}
@@ -88,41 +107,34 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white py-4 px-4 shadow-lg absolute top-full left-0 right-0">
           <div className="flex flex-col space-y-4">
-            <a 
-              href="#" 
-              className="text-earth-dark hover:text-terracotta-dark transition-colors"
+            <Link 
+              to="/" 
+              className={`${isActive('/') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
-            </a>
-            <a 
-              href="#products" 
-              className="text-earth-dark hover:text-terracotta-dark transition-colors"
+            </Link>
+            <Link 
+              to="/products" 
+              className={`${isActive('/products') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Products
-            </a>
-            <a 
-              href="#benefits" 
-              className="text-earth-dark hover:text-terracotta-dark transition-colors"
+            </Link>
+            <Link 
+              to="/about" 
+              className={`${isActive('/about') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Benefits
-            </a>
-            <a 
-              href="#testimonials" 
-              className="text-earth-dark hover:text-terracotta-dark transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Testimonials
-            </a>
-            <a 
-              href="#contact" 
-              className="text-earth-dark hover:text-terracotta-dark transition-colors"
+              About
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`${isActive('/contact') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
-            </a>
+            </Link>
             <Button 
               variant="outline" 
               className="border-terracotta text-terracotta hover:bg-terracotta hover:text-white transition-colors w-full"

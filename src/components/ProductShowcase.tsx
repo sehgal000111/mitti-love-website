@@ -1,38 +1,9 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-
-interface Product {
-  id: number;
-  name: string;
-  size: string;
-  price: number;
-  image: string;
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Clay Water Dispenser",
-    size: "4L",
-    price: 1000,
-    image: "/images/product-4l.png",
-  },
-  {
-    id: 2,
-    name: "Clay Water Dispenser",
-    size: "6L",
-    price: 1500,
-    image: "/images/product-6l.png",
-  },
-  {
-    id: 3,
-    name: "Clay Water Dispenser",
-    size: "8L",
-    price: 2000,
-    image: "/images/product-8l.png",
-  }
-];
+import { products } from '@/models/Product';
+import { Link } from 'react-router-dom';
+import { Star } from "lucide-react";
 
 const ProductShowcase = () => {
   return (
@@ -41,18 +12,37 @@ const ProductShowcase = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (
           <div key={product.id} className="product-card p-6">
-            <div className="mb-4 aspect-square flex items-center justify-center bg-muted rounded-md overflow-hidden">
+            <Link to={`/products/${product.id}`} className="block mb-4 aspect-square flex items-center justify-center bg-muted rounded-md overflow-hidden">
               <img 
-                src={product.image} 
+                src={product.mainImage} 
                 alt={`${product.name} ${product.size}`}
-                className="h-full w-full object-contain p-4"
+                className="h-full w-full object-contain p-4 hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </Link>
             <div>
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <h3 className="text-lg font-semibold">{product.name}</h3>
+                  <Link to={`/products/${product.id}`} className="hover:text-terracotta-dark transition-colors">
+                    <h3 className="text-lg font-semibold">{product.name}</h3>
+                  </Link>
                   <p className="text-muted-foreground">Size: {product.size}</p>
+                  <div className="flex items-center mt-1">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className={`h-4 w-4 ${
+                            i < Math.floor(product.rating) 
+                              ? "text-yellow-500 fill-yellow-500" 
+                              : "text-gray-300"
+                          }`} 
+                        />
+                      ))}
+                    </div>
+                    <span className="text-xs text-muted-foreground ml-2">
+                      ({product.reviews.length} reviews)
+                    </span>
+                  </div>
                 </div>
                 <span className="text-xl font-bold text-terracotta-dark">₹{product.price}</span>
               </div>
@@ -60,14 +50,24 @@ const ProductShowcase = () => {
                 <span className="eco-badge flex items-center gap-1 text-xs">Eco-Friendly</span>
                 <span className="india-badge flex items-center gap-1 text-xs">Made in India</span>
               </div>
-              <Button 
-                className="w-full bg-eco hover:bg-eco-dark mt-2" 
-                asChild
-              >
-                <a href={`https://wa.me/919149958270?text=I'm interested in the ${product.size} Clay Water Dispenser for ₹${product.price}`} target="_blank" rel="noreferrer">
-                  Buy Now on WhatsApp
-                </a>
-              </Button>
+              <div className="flex gap-2">
+                <Button 
+                  className="w-full bg-terracotta hover:bg-terracotta-dark mt-2" 
+                  asChild
+                >
+                  <a href={`https://wa.me/919149958270?text=I'm interested in the ${product.size} Clay Water Dispenser for ₹${product.price}`} target="_blank" rel="noreferrer">
+                    Buy Now
+                  </a>
+                </Button>
+                <Button 
+                  className="w-full bg-white border border-terracotta text-terracotta hover:bg-terracotta/10 mt-2" 
+                  asChild
+                >
+                  <Link to={`/products/${product.id}`}>
+                    View Details
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         ))}
