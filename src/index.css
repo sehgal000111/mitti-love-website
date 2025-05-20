@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 30 10% 15%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 12%;
 
-    --card: 36 33% 97%;
-    --card-foreground: 30 10% 15%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 12%;
 
-    --popover: 36 33% 97%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 12%;
 
-    --primary: 20 52% 58%;
-    --primary-foreground: 36 33% 97%;
+    --primary: 0 0% 12%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 30 28% 67%;
-    --secondary-foreground: 30 10% 15%;
+    --secondary: 0 0% 86%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 24 29% 93%;
-    --muted-foreground: 30 10% 40%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 95 31% 69%;
-    --accent-foreground: 30 10% 15%;
+    --accent: 0 0% 86%;
+    --accent-foreground: 0 0% 12%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 36 33% 97%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 25% 80%;
-    --input: 30 25% 80%;
-    --ring: 20 52% 58%;
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
+    --ring: 0 0% 12%;
 
     --radius: 0.5rem;
   }
@@ -56,20 +56,20 @@
 }
 
 .eco-badge {
-  @apply bg-eco-light text-eco-dark;
+  @apply bg-sketch-light text-sketch-dark border border-sketch-dark;
 }
 
 .india-badge {
-  @apply bg-terracotta-light text-terracotta-dark;
+  @apply bg-white text-sketch-dark border border-sketch-dark;
 }
 
 .section-title {
-  @apply text-2xl md:text-3xl font-semibold mb-6 text-earth-dark relative inline-block;
+  @apply text-2xl md:text-3xl font-semibold mb-6 text-sketch-dark relative inline-block;
 }
 
 .section-title::after {
   content: "";
-  @apply absolute -bottom-2 left-0 w-3/5 h-1 bg-terracotta rounded;
+  @apply absolute -bottom-2 left-0 w-3/5 h-1 bg-sketch-dark rounded;
 }
 
 .page-section {
@@ -77,11 +77,26 @@
 }
 
 .product-card {
-  @apply rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white hover:scale-[1.02] transition-transform duration-300;
+  @apply rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white hover:scale-[1.02] transition-transform duration-300 border border-sketch-dark/20 hover:border-sketch-dark;
 }
 
 .floating-whatsapp {
-  @apply fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 transition-transform duration-300;
+  @apply fixed bottom-6 right-6 bg-sketch-dark text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 transition-transform duration-300 border-2 border-white;
+}
+
+/* Sketchy style elements */
+.sketch-border {
+  @apply border-2 border-sketch-dark relative;
+}
+
+.sketch-border::before {
+  content: "";
+  @apply absolute top-0 left-0 w-full h-full bg-transparent border-2 border-sketch-dark -translate-x-1 -translate-y-1;
+  z-index: -1;
+}
+
+.sketch-button {
+  @apply relative overflow-hidden transition-all duration-300 hover:animate-sketch-hover;
 }
 
 /* Wavy separator */
@@ -98,7 +113,20 @@
   left: 0;
   width: 100%;
   height: 25px;
-  background: radial-gradient(ellipse at center, transparent 0%, transparent 70%, #E7D5C6 70%);
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 70%, #333333 70%);
   background-size: 40px 40px;
   background-position: 0px 20px;
+}
+
+/* Sketchy underline */
+.sketch-underline {
+  @apply relative inline-block;
+}
+
+.sketch-underline::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-full h-[3px] bg-sketch-dark;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='3' viewBox='0 0 100 3' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 1.5C5 0.5 10 2.5 15 1.5C20 0.5 25 2 30 1.5C35 1 40 2 45 1.5C50 1 55 2 60 1.5C65 1 70 2 75 1.5C80 1 85 2 90 1.5C95 1 100 2 105 1.5' stroke='%23333' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 100px 3px;
+  background-repeat: repeat-x;
 }

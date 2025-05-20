@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// New sketchy theme colors
+				sketch: {
+					light: '#F6F6F7',
+					DEFAULT: '#333333',
+					dark: '#000000',
+					accent: '#555555'
+				},
+				// Keep terracotta, clay, earth, eco colors for backward compatibility
 				terracotta: {
 					light: '#E8B298',
 					DEFAULT: '#D1785E',
@@ -95,15 +102,31 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'sketch': {
+					'0%': { transform: 'translate(1px, 1px) rotate(0deg)' },
+					'10%': { transform: 'translate(-1px, -1px) rotate(-0.5deg)' },
+					'20%': { transform: 'translate(-2px, 0px) rotate(0.5deg)' },
+					'30%': { transform: 'translate(0px, 1px) rotate(0deg)' },
+					'40%': { transform: 'translate(1px, -1px) rotate(0.5deg)' },
+					'50%': { transform: 'translate(-1px, 1px) rotate(-0.5deg)' },
+					'60%': { transform: 'translate(-2px, 1px) rotate(0deg)' },
+					'70%': { transform: 'translate(1px, 1px) rotate(-0.5deg)' },
+					'80%': { transform: 'translate(-1px, -1px) rotate(0.5deg)' },
+					'90%': { transform: 'translate(1px, 1px) rotate(0deg)' },
+					'100%': { transform: 'translate(1px, -1px) rotate(-0.5deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'sketch-hover': 'sketch 0.5s ease-in-out'
 			},
 			backgroundImage: {
 				'clay-texture': "url('/images/clay-texture.jpg')",
+				'sketch-texture': "url('/images/sketch-texture.png')",
+				'paper-texture': "url('/images/paper-texture.jpg')",
 			},
 		}
 	},
