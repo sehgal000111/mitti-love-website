@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,33 +53,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// New sketchy theme colors
+				// Simplified sketch theme colors - black & white only
 				sketch: {
-					light: '#F6F6F7',
+					light: '#FFFFFF',
 					DEFAULT: '#333333',
 					dark: '#000000',
 					accent: '#555555'
-				},
-				// Keep terracotta, clay, earth, eco colors for backward compatibility
-				terracotta: {
-					light: '#E8B298',
-					DEFAULT: '#D1785E',
-					dark: '#AB5C47'
-				},
-				clay: {
-					light: '#E7C9B1',
-					DEFAULT: '#C9A28A',
-					dark: '#A88267'
-				},
-				earth: {
-					light: '#E6D2BE',
-					DEFAULT: '#C7A37E',
-					dark: '#8D7051'
-				},
-				eco: {
-					light: '#D3E7C9',
-					DEFAULT: '#94B27A', 
-					dark: '#6A8E51'
 				}
 			},
 			fontFamily: {

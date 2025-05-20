@@ -52,7 +52,7 @@ const ProductShowcase = () => {
               </div>
               <div className="flex gap-2">
                 <Button 
-                  className="w-full bg-sketch-dark hover:bg-sketch-accent text-white mt-2 sketch-button" 
+                  className="w-full bg-sketch-dark hover:bg-black text-white mt-2 sketch-button" 
                   asChild
                 >
                   <a href={`https://wa.me/919149958270?text=I'm interested in the ${product.size} Clay Water Dispenser for ₹${product.price}`} target="_blank" rel="noreferrer">
