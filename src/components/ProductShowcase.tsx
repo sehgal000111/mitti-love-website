@@ -3,12 +3,37 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { products } from '@/models/Product';
 import { Link } from 'react-router-dom';
-import { Star } from "lucide-react";
+import { Star, MessageCircle } from "lucide-react";
 
 const ProductShowcase = () => {
   return (
     <section id="products" className="page-section container mx-auto px-4">
       <h2 className="section-title text-center mx-auto mb-12">Our Handcrafted Products</h2>
+      
+      <div className="mb-8 p-6 bg-leaf-light/20 rounded-lg border border-leaf-light text-center">
+        <p className="mb-4">
+          All our clay dispensers are hand-crafted with love and care by skilled artisans using traditional methods.
+          Each piece is unique and may have slight variations in color and texture, adding to its natural beauty.
+        </p>
+        <div className="flex justify-center gap-4">
+          <img 
+            src="https://images.unsplash.com/photo-1565193298442-a26d2283bc0a?auto=format&fit=crop&q=80&w=200"
+            alt="Clay artisan at work"
+            className="w-20 h-20 object-cover rounded-full border-2 border-white"
+          />
+          <img 
+            src="https://images.unsplash.com/photo-1503146234394-631200675614?auto=format&fit=crop&q=80&w=200"
+            alt="Clay pottery process"
+            className="w-20 h-20 object-cover rounded-full border-2 border-white"
+          />
+          <img 
+            src="https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&q=80&w=200"
+            alt="Clay pot creation"
+            className="w-20 h-20 object-cover rounded-full border-2 border-white"
+          />
+        </div>
+      </div>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (
           <div key={product.id} className="product-card p-6">
@@ -39,8 +64,9 @@ const ProductShowcase = () => {
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-muted-foreground ml-2">
-                      ({product.reviews.length} reviews)
+                    <span className="text-xs text-muted-foreground ml-2 flex items-center gap-1">
+                      <MessageCircle className="h-3 w-3" />
+                      {product.reviews.length} reviews
                     </span>
                   </div>
                 </div>
@@ -71,6 +97,35 @@ const ProductShowcase = () => {
             </div>
           </div>
         ))}
+      </div>
+      
+      {/* New: Customer spotlight */}
+      <div className="mt-16 bg-earth-light/10 p-6 rounded-lg border border-earth-light/30">
+        <h3 className="text-xl font-semibold mb-4 text-center">Customer Spotlight</h3>
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="md:w-1/3">
+            <img 
+              src="https://images.unsplash.com/photo-1551833726-b6e4b4fa3592?auto=format&fit=crop&q=80"
+              alt="Customer using clay pot"
+              className="rounded-lg shadow-sm w-full h-auto"
+            />
+          </div>
+          <div className="md:w-2/3">
+            <p className="text-lg italic mb-4">
+              "Switching to clay dispensers was the best decision for our family. The water tastes incredible, and 
+              we love knowing we're using something natural and eco-friendly. Plus, our kids find it fun to use!"
+            </p>
+            <p className="font-semibold">- The Sharma Family, Delhi</p>
+            <div className="flex mt-2">
+              {[...Array(5)].map((_, i) => (
+                <Star 
+                  key={i}
+                  className="h-4 w-4 text-terracotta fill-terracotta-light" 
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

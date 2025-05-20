@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import ContactCTA from '@/components/ContactCTA';
 import { Button } from '@/components/ui/button';
-import { Star, Check, ArrowLeft } from 'lucide-react';
+import { Star, Check, ArrowLeft, Leaf, Shield, Droplets } from 'lucide-react';
 import { 
   Carousel,
   CarouselContent,
@@ -118,7 +118,7 @@ const ProductDetail = () => {
               </div>
               
               <div className="flex gap-3 mb-6">
-                <span className="eco-badge">Eco-Friendly</span>
+                <span className="eco-badge flex items-center gap-1"><Leaf className="h-3 w-3" /> Eco-Friendly</span>
                 <span className="india-badge">Made in India</span>
               </div>
               
@@ -153,6 +153,57 @@ const ProductDetail = () => {
               <p className="text-center text-sm text-muted-foreground mt-2">
                 Free delivery • Cash on Delivery available
               </p>
+
+              {/* New: Environmental Impact Section */}
+              <div className="mt-8 p-4 bg-leaf-light/20 rounded-lg border border-leaf">
+                <h3 className="font-semibold text-lg mb-3 flex items-center"><Leaf className="h-5 w-5 mr-2 text-leaf-dark" />Environmental Impact</h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  By choosing this product, you're helping reduce plastic waste and supporting sustainable practices. Each dispenser is made from natural clay, requiring minimal energy to produce.
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+                  <span className="bg-white px-2 py-1 rounded-full border">100% Biodegradable</span>
+                  <span className="bg-white px-2 py-1 rounded-full border">No Plastic</span>
+                  <span className="bg-white px-2 py-1 rounded-full border">Low Carbon Footprint</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* New: How It Works Section */}
+        <section className="bg-earth-light/10 py-12 border-t border-b border-earth-light/30">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-8 text-center">How Clay Dispensers Work</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm border text-center">
+                <div className="w-16 h-16 rounded-full bg-leaf-light/30 flex items-center justify-center mx-auto mb-4">
+                  <Droplets className="h-8 w-8 text-leaf-dark" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Natural Cooling</h3>
+                <p className="text-muted-foreground">
+                  Clay is naturally porous, allowing water to seep through and evaporate from the surface, cooling the water inside naturally without electricity.
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-sm border text-center">
+                <div className="w-16 h-16 rounded-full bg-leaf-light/30 flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-leaf-dark" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Mineral Enrichment</h3>
+                <p className="text-muted-foreground">
+                  The natural clay adds beneficial minerals to your water while helping maintain an alkaline pH balance, making it healthier to drink.
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-sm border text-center">
+                <div className="w-16 h-16 rounded-full bg-terracotta-light/30 flex items-center justify-center mx-auto mb-4">
+                  <img src="/images/clay-texture.jpg" alt="Clay texture" className="w-10 h-10 object-cover rounded-full" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Earthy Flavor</h3>
+                <p className="text-muted-foreground">
+                  Clay gives water a subtle, refreshing taste that many describe as pure and natural - the way water was meant to be enjoyed.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -173,6 +224,63 @@ const ProductDetail = () => {
                   <p>{benefit}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* New: Usage Instructions */}
+        <section className="container mx-auto px-4 py-12">
+          <h2 className="text-2xl font-bold mb-8">How to Use & Maintain Your Clay Dispenser</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="rounded-lg overflow-hidden h-full">
+              <img 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80"
+                alt="Clay pot with water" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <div className="space-y-6">
+              <div className="p-4 bg-white rounded-lg border">
+                <h3 className="font-semibold mb-2 flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-terracotta-light flex items-center justify-center mr-2 text-xs text-terracotta-dark">1</span>
+                  First-Time Setup
+                </h3>
+                <p className="text-muted-foreground">
+                  Rinse the dispenser thoroughly with clean water 2-3 times before first use. Allow it to soak in water for 8-10 hours to prep the clay.
+                </p>
+              </div>
+              
+              <div className="p-4 bg-white rounded-lg border">
+                <h3 className="font-semibold mb-2 flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-terracotta-light flex items-center justify-center mr-2 text-xs text-terracotta-dark">2</span>
+                  Daily Usage
+                </h3>
+                <p className="text-muted-foreground">
+                  Fill with filtered water and place in a well-ventilated area away from direct sunlight. For best results, refill once the dispenser is half empty.
+                </p>
+              </div>
+              
+              <div className="p-4 bg-white rounded-lg border">
+                <h3 className="font-semibold mb-2 flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-terracotta-light flex items-center justify-center mr-2 text-xs text-terracotta-dark">3</span>
+                  Weekly Maintenance
+                </h3>
+                <p className="text-muted-foreground">
+                  Empty completely and rinse with clean water once a week. Avoid using soap or detergents as they can be absorbed by the clay.
+                </p>
+              </div>
+              
+              <div className="p-4 bg-white rounded-lg border">
+                <h3 className="font-semibold mb-2 flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-terracotta-light flex items-center justify-center mr-2 text-xs text-terracotta-dark">4</span>
+                  Deep Cleaning (Monthly)
+                </h3>
+                <p className="text-muted-foreground">
+                  Fill with water and add 1-2 tablespoons of baking soda. Let it sit overnight, then rinse thoroughly. Sun-dry completely before refilling.
+                </p>
+              </div>
             </div>
           </div>
         </section>

@@ -47,8 +47,9 @@ export const products: Product[] = [
     mainImage: "/images/product-4l.png",
     images: [
       "/images/product-4l.png",
+      "https://images.unsplash.com/photo-1578494013423-8d7fc55b1bda?auto=format&fit=crop&q=80",
       "/images/clay-texture.jpg",
-      "/images/artisan.jpg"
+      "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80"
     ],
     reviews: [
       {
@@ -99,8 +100,9 @@ export const products: Product[] = [
     mainImage: "/images/product-6l.png",
     images: [
       "/images/product-6l.png",
+      "https://images.unsplash.com/photo-1578494013423-8d7fc55b1bda?auto=format&fit=crop&q=80",
       "/images/clay-texture.jpg",
-      "/images/artisan.jpg"
+      "https://images.unsplash.com/photo-1564911288842-1c6c4e71f7e5?auto=format&fit=crop&q=80"
     ],
     reviews: [
       {
@@ -158,8 +160,9 @@ export const products: Product[] = [
     mainImage: "/images/product-8l.png",
     images: [
       "/images/product-8l.png",
+      "https://images.unsplash.com/photo-1578494013423-8d7fc55b1bda?auto=format&fit=crop&q=80",
       "/images/clay-texture.jpg",
-      "/images/artisan.jpg"
+      "https://images.unsplash.com/photo-1603641288811-3ae154ff7c22?auto=format&fit=crop&q=80"
     ],
     reviews: [
       {
