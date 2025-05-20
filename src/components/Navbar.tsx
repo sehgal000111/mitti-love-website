@@ -25,8 +25,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-lora font-bold text-terracotta">
-            Mitti<span className="text-eco-dark">Se</span>Love
+          <span className="text-2xl font-lora font-bold">
+            Mitti<span className="text-terracotta">Se</span>Love
           </span>
         </Link>
 
@@ -34,25 +34,25 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           <Link 
             to="/" 
-            className={`${isActive('/') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+            className={`${isActive('/') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
           >
             Home
           </Link>
           <Link 
             to="/products" 
-            className={`${isActive('/products') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+            className={`${isActive('/products') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
           >
             Products
           </Link>
           <Link 
             to="/about" 
-            className={`${isActive('/about') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+            className={`${isActive('/about') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
           >
             About
           </Link>
           <Link 
             to="/contact" 
-            className={`${isActive('/contact') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+            className={`${isActive('/contact') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
           >
             Contact
           </Link>
@@ -109,28 +109,28 @@ const Navbar = () => {
           <div className="flex flex-col space-y-4">
             <Link 
               to="/" 
-              className={`${isActive('/') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+              className={`${isActive('/') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/products" 
-              className={`${isActive('/products') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+              className={`${isActive('/products') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Products
             </Link>
             <Link 
               to="/about" 
-              className={`${isActive('/about') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+              className={`${isActive('/about') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link 
               to="/contact" 
-              className={`${isActive('/contact') ? 'text-terracotta-dark font-medium' : 'text-earth-dark'} hover:text-terracotta-dark transition-colors`}
+              className={`${isActive('/contact') ? 'text-terracotta font-medium' : 'text-earth-dark'} hover:text-terracotta transition-colors`}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact

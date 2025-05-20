@@ -38,13 +38,13 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div 
             key={index} 
-            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-terracotta animate-gentle-sway"
           >
             <div className="flex items-center mb-4">
               {[...Array(5)].map((_, i) => (
                 <svg 
                   key={i} 
-                  className={`w-5 h-5 ${i < testimonial.rating ? 'text-black' : 'text-gray-300'}`}
+                  className={`w-5 h-5 ${i < testimonial.rating ? 'text-terracotta' : 'text-gray-300'}`}
                   fill="currentColor" 
                   viewBox="0 0 20 20"
                 >
@@ -56,7 +56,7 @@ const Testimonials = () => {
             <p className="text-muted-foreground italic mb-4">"{testimonial.comment}"</p>
             
             <div className="flex justify-between items-center">
-              <span className="font-semibold text-sketch-dark">{testimonial.name}</span>
+              <span className="font-semibold text-earth-dark">{testimonial.name}</span>
               <span className="text-sm text-muted-foreground">{testimonial.location}</span>
             </div>
           </div>

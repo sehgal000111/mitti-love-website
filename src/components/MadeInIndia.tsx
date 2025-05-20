@@ -4,36 +4,36 @@ import { Flag, IndianRupee, HandHeart } from 'lucide-react';
 
 const MadeInIndia = () => {
   return (
-    <section id="made-in-india" className="page-section bg-sketch-light/50 relative">
+    <section id="made-in-india" className="page-section bg-eco-light/30 relative">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-center mx-auto mb-12">Made with Love in India</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-            <div className="mb-4 bg-sketch-light p-4 rounded-full">
-              <HandHeart className="h-8 w-8 text-black" />
+          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center leaf-border">
+            <div className="mb-4 bg-terracotta-light/40 p-4 rounded-full">
+              <HandHeart className="h-8 w-8 text-terracotta-dark" />
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-sketch-dark">Rural Artisanship</h3>
+            <h3 className="text-xl font-semibold mb-3 text-earth-dark">Rural Artisanship</h3>
             <p className="text-muted-foreground">
               Every pot is handcrafted by skilled artisans using traditional techniques passed down through generations in rural India.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-            <div className="mb-4 bg-sketch-light p-4 rounded-full">
-              <Flag className="h-8 w-8 text-black" />
+          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center leaf-border">
+            <div className="mb-4 bg-terracotta-light/40 p-4 rounded-full">
+              <Flag className="h-8 w-8 text-terracotta-dark" />
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-sketch-dark">Pan India Delivery</h3>
+            <h3 className="text-xl font-semibold mb-3 text-earth-dark">Pan India Delivery</h3>
             <p className="text-muted-foreground">
               We deliver across India with eco-safe packaging that ensures your products arrive in perfect condition.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-            <div className="mb-4 bg-sketch-light p-4 rounded-full">
-              <IndianRupee className="h-8 w-8 text-black" />
+          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center leaf-border">
+            <div className="mb-4 bg-terracotta-light/40 p-4 rounded-full">
+              <IndianRupee className="h-8 w-8 text-terracotta-dark" />
             </div>
-            <h3 className="text-xl font-semibold mb-3 text-sketch-dark">Affordable for Everyone</h3>
+            <h3 className="text-xl font-semibold mb-3 text-earth-dark">Affordable for Everyone</h3>
             <p className="text-muted-foreground">
               We believe in making eco-friendly choices accessible to all, with pocket-friendly prices for every home.
             </p>
@@ -50,7 +50,7 @@ const MadeInIndia = () => {
               />
             </div>
             <div className="md:w-1/2">
-              <h3 className="text-2xl font-semibold mb-4 text-sketch-dark">Supporting Traditional Craftsmanship</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-earth-dark">Supporting Traditional Craftsmanship</h3>
               <p className="text-muted-foreground mb-4">
                 By choosing MittiSeLove products, you're supporting the livelihood of skilled rural artisans and helping preserve ancient Indian pottery traditions.
               </p>

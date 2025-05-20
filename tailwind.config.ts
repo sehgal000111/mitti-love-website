@@ -53,12 +53,26 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Simplified sketch theme colors - black & white only
-				sketch: {
-					light: '#FFFFFF',
-					DEFAULT: '#333333',
-					dark: '#000000',
-					accent: '#555555'
+				// Eco-friendly theme colors
+				terracotta: {
+					light: '#F2D2BD',
+					DEFAULT: '#E07A5F',
+					dark: '#C05746'
+				},
+				earth: {
+					light: '#E8DDCB',
+					DEFAULT: '#CDB38B',
+					dark: '#8A715E'
+				},
+				eco: {
+					light: '#D8E2DC',
+					DEFAULT: '#81B29A',
+					dark: '#3D5A6C'
+				},
+				leaf: {
+					light: '#E9F5DB',
+					DEFAULT: '#A7C957',
+					dark: '#6A994E'
 				}
 			},
 			fontFamily: {
@@ -83,32 +97,24 @@ export default {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
 				},
-				'sketch': {
-					'0%': { transform: 'translate(1px, 1px) rotate(0deg)' },
-					'10%': { transform: 'translate(-1px, -1px) rotate(-0.5deg)' },
-					'20%': { transform: 'translate(-2px, 0px) rotate(0.5deg)' },
-					'30%': { transform: 'translate(0px, 1px) rotate(0deg)' },
-					'40%': { transform: 'translate(1px, -1px) rotate(0.5deg)' },
-					'50%': { transform: 'translate(-1px, 1px) rotate(-0.5deg)' },
-					'60%': { transform: 'translate(-2px, 1px) rotate(0deg)' },
-					'70%': { transform: 'translate(1px, 1px) rotate(-0.5deg)' },
-					'80%': { transform: 'translate(-1px, -1px) rotate(0.5deg)' },
-					'90%': { transform: 'translate(1px, 1px) rotate(0deg)' },
-					'100%': { transform: 'translate(1px, -1px) rotate(-0.5deg)' }
+				'gentle-sway': {
+					'0%, 100%': { transform: 'rotate(-1deg)' },
+					'50%': { transform: 'rotate(1deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'float': 'float 3s ease-in-out infinite',
-				'sketch-hover': 'sketch 0.5s ease-in-out'
+				'float': 'float 6s ease-in-out infinite',
+				'gentle-sway': 'gentle-sway 4s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'clay-texture': "url('/images/clay-texture.jpg')",
-				'sketch-texture': "url('/images/sketch-texture.png')",
+				'leaf-pattern': "url('/images/leaf-pattern.png')",
 				'paper-texture': "url('/images/paper-texture.jpg')",
 			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

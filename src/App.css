@@ -1,5 +1,4 @@
 
-
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -14,10 +13,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #333333aa);
+  filter: drop-shadow(0 0 2em #81B29Aaa);
 }
-.logo.sketch:hover {
-  filter: drop-shadow(0 0 2em #222222aa);
+.logo.terracotta:hover {
+  filter: drop-shadow(0 0 2em #E07A5Faa);
 }
 
 @keyframes logo-spin {
@@ -37,7 +36,7 @@
 
 .card {
   padding: 2em;
-  border: 2px solid #333;
+  border: 2px solid #8A715E;
   position: relative;
 }
 
@@ -48,47 +47,54 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #333;
+  border: 2px solid #8A715E;
   transform: translate(-4px, -4px);
   z-index: -1;
 }
 
 .read-the-docs {
-  color: #333;
+  color: #8A715E;
 }
 
-.btn-sketch {
+.btn-eco {
   background-color: white;
-  border: 2px solid #333;
-  color: #333;
+  border: 2px solid #81B29A;
+  color: #3D5A6C;
   padding: 0.5rem 1rem;
   position: relative;
   transition: all 0.3s ease;
 }
 
-.btn-sketch::before {
+.btn-eco::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: #81B29A;
   transform: translate(4px, 4px);
   z-index: -1;
   transition: all 0.3s ease;
 }
 
-.btn-sketch:hover {
+.btn-eco:hover {
   transform: translate(2px, 2px);
 }
 
-.btn-sketch:hover::before {
+.btn-eco:hover::before {
   transform: translate(2px, 2px);
 }
 
-.sketchy-box {
-  border: 2px solid #333;
+.eco-box {
+  border: 2px solid #81B29A;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   padding: 1em;
 }
+
+.terracotta-box {
+  border: 2px solid #E07A5F;
+  border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
+  padding: 1em;
+}
+

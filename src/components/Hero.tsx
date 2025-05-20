@@ -6,18 +6,18 @@ import { Coffee, Phone } from "lucide-react";
 const Hero = () => {
   return (
     <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-[url('/images/hero-bg.jpg')] bg-cover bg-center">
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/25"></div>
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-xl">
           <div className="flex gap-2 mb-4">
             <span className="eco-badge flex items-center gap-1">
-              <span className="h-2 w-2 bg-black rounded-full"></span> Eco-Friendly
+              <span className="h-2 w-2 bg-leaf-dark rounded-full"></span> Eco-Friendly
             </span>
             <span className="india-badge flex items-center gap-1">
-              <span className="h-2 w-2 bg-black rounded-full"></span> Made in India
+              <span className="h-2 w-2 bg-terracotta-dark rounded-full"></span> Made in India
             </span>
             <span className="eco-badge flex items-center gap-1">
-              <span className="h-2 w-2 bg-black rounded-full"></span> Pocket-Friendly
+              <span className="h-2 w-2 bg-leaf-dark rounded-full"></span> Pocket-Friendly
             </span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white drop-shadow-md">
@@ -28,7 +28,7 @@ const Hero = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button 
-              className="bg-black hover:bg-black/80 text-white flex items-center gap-2 py-6"
+              className="bg-terracotta hover:bg-terracotta-dark text-white flex items-center gap-2 py-6"
               asChild
             >
               <a href="https://wa.me/919149958270" target="_blank" rel="noreferrer">
@@ -38,7 +38,7 @@ const Hero = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="bg-white/90 hover:bg-white border-black text-black hover:text-black flex items-center gap-2 py-6"
+              className="bg-white/90 hover:bg-white border-terracotta text-terracotta hover:text-terracotta-dark flex items-center gap-2 py-6"
               asChild
             >
               <a href="tel:9149958270">
