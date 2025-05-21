@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { products } from '@/models/Product';
@@ -8,10 +7,19 @@ import { Badge } from '@/components/ui/badge';
 
 const ProductShowcase = () => {
   return (
-    <section id="products" className="page-section container mx-auto px-4">
+    <section id="products" className="page-section container mx-auto px-4 relative">
+      {/* Add background image with subtle opacity */}
+      <div className="absolute inset-0 -z-10 opacity-10 pointer-events-none">
+        <img 
+          src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&q=80"
+          alt=""
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+      
       <h2 className="section-title text-center mx-auto mb-12">Our Handcrafted Products</h2>
       
-      <div className="mb-8 p-6 bg-leaf-light/20 rounded-lg border border-leaf-light text-center">
+      <div className="mb-8 p-6 bg-leaf-light/20 rounded-lg border border-leaf-light text-center backdrop-blur-sm">
         <p className="mb-4">
           All our clay dispensers are hand-crafted with love and care by skilled artisans using traditional methods.
           Each piece is unique and may have slight variations in color and texture, adding to its natural beauty.
@@ -28,7 +36,7 @@ const ProductShowcase = () => {
             className="w-20 h-20 object-cover rounded-full border-2 border-white"
           />
           <img 
-            src="https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?auto=format&fit=crop&q=80&w=200"
+            src="https://images.unsplash.com/photo-1610701596061-e9573fc25ebb?auto=format&fit=crop&q=80&w=200"
             alt="Clay pot creation"
             className="w-20 h-20 object-cover rounded-full border-2 border-white"
           />
@@ -137,8 +145,8 @@ const ProductShowcase = () => {
         ))}
       </div>
       
-      {/* Customer spotlight */}
-      <div className="mt-16 bg-earth-light/10 p-6 rounded-lg border border-earth-light/30">
+      {/* Customer spotlight with slightly modified background for better visibility */}
+      <div className="mt-16 bg-earth-light/30 p-6 rounded-lg border border-earth-light/30 backdrop-blur-sm">
         <h3 className="text-xl font-semibold mb-4 text-center">Customer Spotlight</h3>
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="md:w-1/3">
