@@ -3,7 +3,8 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { products } from '@/models/Product';
 import { Link } from 'react-router-dom';
-import { Star, MessageCircle } from "lucide-react";
+import { Star, MessageCircle, BadgePercent, Check } from "lucide-react";
+import { Badge } from '@/components/ui/badge';
 
 const ProductShowcase = () => {
   return (
@@ -37,13 +38,40 @@ const ProductShowcase = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (
           <div key={product.id} className="product-card p-6">
-            <Link to={`/products/${product.id}`} className="block mb-4 aspect-square flex items-center justify-center bg-earth-light/20 rounded-md overflow-hidden">
-              <img 
-                src={product.mainImage} 
-                alt={`${product.name} ${product.size}`}
-                className="h-full w-full object-contain p-4 hover:scale-105 transition-transform duration-300"
-              />
-            </Link>
+            <div className="relative mb-4">
+              <Link to={`/products/${product.id}`} className="block aspect-square flex items-center justify-center bg-earth-light/20 rounded-md overflow-hidden">
+                <img 
+                  src={product.mainImage} 
+                  alt={`${product.name} ${product.size}`}
+                  className="h-full w-full object-contain p-4 hover:scale-105 transition-transform duration-300"
+                />
+              </Link>
+              
+              {/* New: Discount tag */}
+              {product.id % 2 === 1 && (
+                <div className="absolute top-2 left-2 bg-terracotta text-white rounded-full py-1 px-3 font-bold text-sm flex items-center">
+                  <BadgePercent className="h-3 w-3 mr-1" />
+                  {(product.id * 5) % 20 + 5}% OFF
+                </div>
+              )}
+              
+              {/* New: Stock status */}
+              <div className="absolute bottom-2 right-2">
+                <Badge className={`text-xs font-medium ${product.id % 3 === 0 ? 'bg-amber-100 text-amber-800 hover:bg-amber-100' : 'bg-leaf-light text-leaf-dark hover:bg-leaf-light'}`}>
+                  <span className="flex items-center">
+                    {product.id % 3 === 0 ? (
+                      'Low Stock'
+                    ) : (
+                      <>
+                        <Check className="h-3 w-3 mr-1" />
+                        In Stock
+                      </>
+                    )}
+                  </span>
+                </Badge>
+              </div>
+            </div>
+            
             <div>
               <div className="flex justify-between items-start mb-2">
                 <div>
@@ -70,7 +98,17 @@ const ProductShowcase = () => {
                     </span>
                   </div>
                 </div>
-                <span className="text-xl font-bold text-earth-dark">₹{product.price}</span>
+                <div className="text-right">
+                  {/* New: Show original and discounted price */}
+                  {product.id % 2 === 1 ? (
+                    <>
+                      <span className="text-sm text-muted-foreground line-through">₹{Math.round(product.price * (100 + ((product.id * 5) % 20 + 5)) / 100)}</span>
+                      <span className="text-xl font-bold text-earth-dark block">₹{product.price}</span>
+                    </>
+                  ) : (
+                    <span className="text-xl font-bold text-earth-dark">₹{product.price}</span>
+                  )}
+                </div>
               </div>
               <div className="flex gap-2 my-2">
                 <span className="eco-badge flex items-center gap-1 text-xs">Eco-Friendly</span>
@@ -99,7 +137,7 @@ const ProductShowcase = () => {
         ))}
       </div>
       
-      {/* New: Customer spotlight */}
+      {/* Customer spotlight */}
       <div className="mt-16 bg-earth-light/10 p-6 rounded-lg border border-earth-light/30">
         <h3 className="text-xl font-semibold mb-4 text-center">Customer Spotlight</h3>
         <div className="flex flex-col md:flex-row items-center gap-6">

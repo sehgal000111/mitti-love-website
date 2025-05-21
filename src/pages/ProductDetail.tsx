@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '@/models/Product';
@@ -7,7 +6,8 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import ContactCTA from '@/components/ContactCTA';
 import { Button } from '@/components/ui/button';
-import { Star, Check, ArrowLeft, Leaf, Shield, Droplets } from 'lucide-react';
+import { Star, Check, ArrowLeft, Leaf, Shield, Droplets, BadgePercent, CheckCheck } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { 
   Carousel,
   CarouselContent,
@@ -49,6 +49,14 @@ const ProductDetail = () => {
     );
   }
 
+  // Generate discount based on product ID for demo purposes
+  const hasDiscount = product.id % 2 === 1;
+  const discountPercentage = hasDiscount ? (product.id * 5) % 20 + 5 : 0;
+  const originalPrice = hasDiscount ? Math.round(product.price * (100 + discountPercentage) / 100) : product.price;
+  const stockStatus = product.id % 3 === 0 ? 'Low Stock' : 'In Stock';
+  const estimatedDelivery = new Date();
+  estimatedDelivery.setDate(estimatedDelivery.getDate() + 3 + (product.id % 4));
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -71,12 +79,20 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Product Images */}
             <div>
-              <div className="mb-4 aspect-square bg-white rounded-lg overflow-hidden border">
+              <div className="mb-4 aspect-square bg-white rounded-lg overflow-hidden border relative">
                 <img 
                   src={selectedImage} 
                   alt={`${product.name} ${product.size}`}
                   className="w-full h-full object-contain"
                 />
+                
+                {/* New: Discount tag */}
+                {hasDiscount && (
+                  <div className="absolute top-4 left-4 bg-terracotta text-white rounded-full py-1.5 px-3 font-bold text-sm flex items-center shadow-md">
+                    <BadgePercent className="h-4 w-4 mr-1.5" />
+                    {discountPercentage}% OFF
+                  </div>
+                )}
               </div>
               <div className="grid grid-cols-4 gap-2">
                 {product.images.map((img, index) => (
@@ -120,11 +136,62 @@ const ProductDetail = () => {
               <div className="flex gap-3 mb-6">
                 <span className="eco-badge flex items-center gap-1"><Leaf className="h-3 w-3" /> Eco-Friendly</span>
                 <span className="india-badge">Made in India</span>
+                
+                {/* New: Stock status badge */}
+                <Badge className={`${product.id % 3 === 0 ? 'bg-amber-100 text-amber-800 hover:bg-amber-100 border-amber-200' : 'bg-green-50 text-green-700 hover:bg-green-50 border border-green-200'}`}>
+                  <span className="flex items-center">
+                    {product.id % 3 === 0 ? (
+                      'Low Stock'
+                    ) : (
+                      <>
+                        <CheckCheck className="h-3 w-3 mr-1" />
+                        In Stock
+                      </>
+                    )}
+                  </span>
+                </Badge>
               </div>
               
-              <div className="mb-6">
-                <span className="text-3xl font-bold text-terracotta-dark">₹{product.price}</span>
-                <span className="ml-2 text-muted-foreground">(Free shipping across India)</span>
+              {/* New: Price display with original price if discounted */}
+              <div className="mb-6 p-4 bg-earth-light/10 rounded-lg border border-earth-light/20">
+                {hasDiscount ? (
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-3xl font-bold text-terracotta-dark">₹{product.price}</span>
+                      <span className="text-lg text-muted-foreground line-through">₹{originalPrice}</span>
+                      <span className="bg-terracotta/20 text-terracotta-dark text-sm px-2 py-0.5 rounded font-medium">
+                        Save ₹{originalPrice - product.price}
+                      </span>
+                    </div>
+                    <div className="text-sm text-muted-foreground flex items-center gap-1">
+                      <span>Limited time offer</span>
+                      <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
+                      <span>Free shipping across India</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <span className="text-3xl font-bold text-terracotta-dark block mb-1">₹{product.price}</span>
+                    <span className="text-sm text-muted-foreground">Free shipping across India</span>
+                  </div>
+                )}
+              </div>
+              
+              {/* New: Delivery information */}
+              <div className="mb-6 flex items-center gap-2 text-sm text-earth-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-leaf-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="16" height="13" x="4" y="4" rx="2" />
+                  <path d="M4 8h16" />
+                  <path d="M8 12h.01" />
+                  <path d="M12 12h.01" />
+                  <path d="M16 12h.01" />
+                  <path d="M8 16h.01" />
+                  <path d="M12 16h.01" />
+                  <path d="M16 16h.01" />
+                </svg>
+                <span>
+                  Get it by <strong>{estimatedDelivery.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })}</strong> if ordered within <strong>18 hrs 30 mins</strong>
+                </span>
               </div>
               
               <p className="text-gray-600 mb-6">{product.longDescription}</p>
@@ -141,6 +208,21 @@ const ProductDetail = () => {
                 </ul>
               </div>
               
+              {/* New: Quantity selector (non-functional for demo) */}
+              <div className="mb-6">
+                <label className="block text-sm font-medium mb-2">Quantity:</label>
+                <div className="flex items-center w-32">
+                  <button className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l">-</button>
+                  <input
+                    type="number" 
+                    className="w-full h-8 border-t border-b border-gray-300 text-center" 
+                    defaultValue={1}
+                    min={1}
+                  />
+                  <button className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r">+</button>
+                </div>
+              </div>
+              
               <Button 
                 className="w-full sm:w-auto bg-terracotta hover:bg-terracotta-dark text-white mb-3 py-6 text-lg" 
                 asChild
@@ -154,7 +236,7 @@ const ProductDetail = () => {
                 Free delivery • Cash on Delivery available
               </p>
 
-              {/* New: Environmental Impact Section */}
+              {/* Environmental Impact Section */}
               <div className="mt-8 p-4 bg-leaf-light/20 rounded-lg border border-leaf">
                 <h3 className="font-semibold text-lg mb-3 flex items-center"><Leaf className="h-5 w-5 mr-2 text-leaf-dark" />Environmental Impact</h3>
                 <p className="text-sm text-muted-foreground mb-3">
@@ -170,7 +252,7 @@ const ProductDetail = () => {
           </div>
         </section>
         
-        {/* New: How It Works Section */}
+        {/* How It Works Section */}
         <section className="bg-earth-light/10 py-12 border-t border-b border-earth-light/30">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold mb-8 text-center">How Clay Dispensers Work</h2>
@@ -228,7 +310,7 @@ const ProductDetail = () => {
           </div>
         </section>
         
-        {/* New: Usage Instructions */}
+        {/* Usage Instructions */}
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-2xl font-bold mb-8">How to Use & Maintain Your Clay Dispenser</h2>
           
@@ -351,13 +433,24 @@ const ProductDetail = () => {
                 <CarouselItem key={p.id} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-2">
                     <div className="product-card p-4 border rounded-lg h-full flex flex-col">
-                      <Link to={`/products/${p.id}`} className="block mb-4 aspect-square flex items-center justify-center bg-muted rounded-md overflow-hidden">
-                        <img 
-                          src={p.mainImage} 
-                          alt={`${p.name} ${p.size}`}
-                          className="h-full w-full object-contain p-4"
-                        />
-                      </Link>
+                      <div className="relative">
+                        <Link to={`/products/${p.id}`} className="block mb-4 aspect-square flex items-center justify-center bg-muted rounded-md overflow-hidden">
+                          <img 
+                            src={p.mainImage} 
+                            alt={`${p.name} ${p.size}`}
+                            className="h-full w-full object-contain p-4"
+                          />
+                        </Link>
+                        
+                        {/* New: Discount tag on related products */}
+                        {p.id % 2 === 1 && (
+                          <div className="absolute top-2 left-2 bg-terracotta text-white rounded-full py-1 px-2 text-xs font-bold flex items-center">
+                            <BadgePercent className="h-3 w-3 mr-0.5" />
+                            {(p.id * 5) % 20 + 5}% OFF
+                          </div>
+                        )}
+                      </div>
+                      
                       <div className="flex-1">
                         <div className="flex justify-between items-start mb-2">
                           <div>
@@ -365,8 +458,25 @@ const ProductDetail = () => {
                               <h3 className="text-lg font-semibold">{p.name}</h3>
                             </Link>
                             <p className="text-muted-foreground">Size: {p.size}</p>
+                            
+                            {/* New: Stock indicator */}
+                            <Badge variant="outline" className="mt-1 text-xs">
+                              {p.id % 3 === 0 ? 'Low Stock' : 'In Stock'}
+                            </Badge>
                           </div>
-                          <span className="text-lg font-bold text-terracotta-dark">₹{p.price}</span>
+                          <div>
+                            {/* New: Show original and discounted price */}
+                            {p.id % 2 === 1 ? (
+                              <>
+                                <span className="text-sm text-muted-foreground line-through block text-right">
+                                  ₹{Math.round(p.price * (100 + ((p.id * 5) % 20 + 5)) / 100)}
+                                </span>
+                                <span className="text-lg font-bold text-terracotta-dark">₹{p.price}</span>
+                              </>
+                            ) : (
+                              <span className="text-lg font-bold text-terracotta-dark">₹{p.price}</span>
+                            )}
+                          </div>
                         </div>
                         <Button 
                           className="w-full bg-terracotta hover:bg-terracotta-dark mt-2" 
