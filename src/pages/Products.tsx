@@ -12,10 +12,10 @@ const Products = () => {
       <Navbar />
       <main>
         <div className="bg-leaf-light/30 py-16 relative overflow-hidden">
-          {/* Background leaf pattern */}
+          {/* Background image with overlay */}
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <img 
-              src="https://images.unsplash.com/photo-1601482438629-622f6222f002?auto=format&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&q=80"
               alt=""
               className="w-full h-full object-cover"
             />
@@ -51,8 +51,16 @@ const Products = () => {
         </div>
         
         <section className="container mx-auto px-4 py-12">
-          <div className="bg-white p-6 rounded-lg shadow-sm border mb-12">
-            <div className="flex flex-col md:flex-row items-center">
+          <div className="bg-white p-6 rounded-lg shadow-sm border mb-12 relative overflow-hidden">
+            {/* Background image with subtle opacity */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <img 
+                src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&q=80"
+                alt=""
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center">
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <img 
                   src="https://images.unsplash.com/photo-1606307305459-f9a578fbd5e1?auto=format&fit=crop&q=80"
