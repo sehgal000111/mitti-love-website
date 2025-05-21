@@ -12,8 +12,8 @@ const Products = () => {
       <Navbar />
       <main>
         <div className="bg-leaf-light/30 py-16 relative overflow-hidden">
-          {/* Background leaf pattern - decorative */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
+          {/* Background leaf pattern */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
             <img 
               src="https://images.unsplash.com/photo-1601482438629-622f6222f002?auto=format&fit=crop&q=80"
               alt=""
@@ -21,8 +21,8 @@ const Products = () => {
             />
           </div>
           
-          <div className="container mx-auto px-4 relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 natural-underline">Our Products</h1>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 natural-underline mx-auto">Our Products</h1>
             <p className="text-center text-muted-foreground max-w-xl mx-auto">
               Handcrafted with love, our clay dispensers bring natural goodness to your home
             </p>

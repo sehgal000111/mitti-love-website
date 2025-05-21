@@ -10,8 +10,17 @@ const About = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main>
-        <div className="bg-clay-light/30 py-16">
-          <div className="container mx-auto px-4">
+        <div className="bg-clay-light/30 py-16 relative overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <img 
+              src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&q=80"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">About MittiSeLove</h1>
             <p className="text-center text-muted-foreground max-w-xl mx-auto">
               Bringing the ancient wisdom of clay craftsmanship to modern homes
