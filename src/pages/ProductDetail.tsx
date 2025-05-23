@@ -1,6 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '@/models/Product';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -15,6 +15,132 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
+// Static products data
+const products = [
+  {
+    id: 1,
+    name: "Clay Water Dispenser",
+    size: "4L",
+    price: 1000,
+    description: "Natural clay water dispenser that keeps water cool and healthy.",
+    longDescription: "Our 4L Clay Water Dispenser is handcrafted by skilled artisans using traditional techniques. The natural clay material keeps your water naturally cool without refrigeration and enhances the taste by adding essential minerals. The perfect size for small families or office spaces.",
+    features: [
+      "4-liter capacity",
+      "Naturally cools water",
+      "Handcrafted in Rajasthan",
+      "Easy-to-use tap system",
+      "Elegant design with natural finish"
+    ],
+    benefits: [
+      "Maintains water's natural taste",
+      "Alkaline properties balance body pH",
+      "No harmful chemicals or plastics",
+      "Adds essential minerals to water",
+      "Eco-friendly alternative to plastic"
+    ],
+    mainImage: "/claypot1.png",
+    images: [
+      "/claypot1.png",
+      "/claypot1.png",
+      "/claypot1.png",
+      "/claypot1.png"
+    ],
+    reviews: [
+      {
+        id: 101,
+        name: "Arjun Sharma",
+        rating: 5,
+        comment: "Water tastes so much better from this clay dispenser! It stays cool even during hot summer days.",
+        date: "2023-05-12"
+      },
+      {
+        id: 102,
+        name: "Priya Patel",
+        rating: 5,
+        comment: "Excellent quality clay pot. My grandmother used to have something similar, and I'm glad I found this.",
+        date: "2023-06-24"
+      },
+      {
+        id: 103,
+        name: "Rajiv Malhotra",
+        rating: 4,
+        comment: "Good product, water remains naturally cool. The tap works well too.",
+        date: "2023-07-15"
+      }
+    ],
+    rating: 4.7,
+    discount: 15
+  },
+  {
+    id: 2,
+    name: "Clay Water Dispenser",
+    size: "8L",
+    price: 2000,
+    description: "Large clay water dispenser perfect for big families and gatherings.",
+    longDescription: "Our premium 8L Clay Water Dispenser is designed for large families or gatherings. This spacious dispenser is handcrafted by skilled artisans using the finest natural clay. It keeps water naturally cool and enhances its mineral content and taste. The elegant design combined with practical functionality makes it a perfect addition to any home.",
+    features: [
+      "8-liter capacity",
+      "Naturally cools water",
+      "Handcrafted by master artisans",
+      "Premium quality brass tap",
+      "Elegant design with traditional motifs"
+    ],
+    benefits: [
+      "Provides naturally cool water without electricity",
+      "Maintains water's natural pH balance",
+      "Enriches water with essential minerals",
+      "Supports traditional craftsmanship",
+      "Environmentally sustainable product"
+    ],
+    mainImage: "/claypot2v2.png",
+    images: [
+      "/claypot2.png",
+      "/claypot2v2.png",
+      "/claypot2.png",
+      "/claypot2v2.png"
+    ],
+    reviews: [
+      {
+        id: 301,
+        name: "Ravi Desai",
+        rating: 5,
+        comment: "Excellent quality and perfect size for our joint family. The water tastes so pure!",
+        date: "2023-03-15"
+      },
+      {
+        id: 302,
+        name: "Sunita Agarwal",
+        rating: 4,
+        comment: "Beautiful design and keeps water cool. The tap works smoothly. Highly recommended.",
+        date: "2023-06-05"
+      },
+      {
+        id: 303,
+        name: "Prakash Joshi",
+        rating: 5,
+        comment: "We've been using this for the past month and love it. Water tastes better and stays cool.",
+        date: "2023-07-28"
+      },
+      {
+        id: 304,
+        name: "Lakshmi Nair",
+        rating: 5,
+        comment: "Perfect for our family gatherings. Everyone comments on how good the water tastes!",
+        date: "2023-08-17"
+      },
+      {
+        id: 305,
+        name: "Amit Shah",
+        rating: 4,
+        comment: "Good capacity and nice traditional look. Keeps water cool naturally.",
+        date: "2023-09-02"
+      }
+    ],
+    rating: 4.6,
+    discount: 0
+  }
+];
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -50,12 +176,12 @@ const ProductDetail = () => {
   }
 
   // Generate discount based on product ID for demo purposes
-  const hasDiscount = product.id % 2 === 1;
-  const discountPercentage = hasDiscount ? (product.id * 5) % 20 + 5 : 0;
+  const hasDiscount = product.discount > 0;
+  const discountPercentage = product.discount;
   const originalPrice = hasDiscount ? Math.round(product.price * (100 + discountPercentage) / 100) : product.price;
-  const stockStatus = product.id % 3 === 0 ? 'Low Stock' : 'In Stock';
+  const stockStatus = 'In Stock';
   const estimatedDelivery = new Date();
-  estimatedDelivery.setDate(estimatedDelivery.getDate() + 3 + (product.id % 4));
+  estimatedDelivery.setDate(estimatedDelivery.getDate() + 3);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -86,7 +212,7 @@ const ProductDetail = () => {
                   className="w-full h-full object-contain"
                 />
                 
-                {/* New: Discount tag */}
+                {/* Discount tag */}
                 {hasDiscount && (
                   <div className="absolute top-4 left-4 bg-terracotta text-white rounded-full py-1.5 px-3 font-bold text-sm flex items-center shadow-md">
                     <BadgePercent className="h-4 w-4 mr-1.5" />
@@ -137,22 +263,16 @@ const ProductDetail = () => {
                 <span className="eco-badge flex items-center gap-1"><Leaf className="h-3 w-3" /> Eco-Friendly</span>
                 <span className="india-badge">Made in India</span>
                 
-                {/* New: Stock status badge */}
-                <Badge className={`${product.id % 3 === 0 ? 'bg-amber-100 text-amber-800 hover:bg-amber-100 border-amber-200' : 'bg-green-50 text-green-700 hover:bg-green-50 border border-green-200'}`}>
+                {/* Stock status badge */}
+                <Badge className="bg-green-50 text-green-700 hover:bg-green-50 border border-green-200">
                   <span className="flex items-center">
-                    {product.id % 3 === 0 ? (
-                      'Low Stock'
-                    ) : (
-                      <>
-                        <CheckCheck className="h-3 w-3 mr-1" />
-                        In Stock
-                      </>
-                    )}
+                    <CheckCheck className="h-3 w-3 mr-1" />
+                    {stockStatus}
                   </span>
                 </Badge>
               </div>
               
-              {/* New: Price display with original price if discounted */}
+              {/* Price display with original price if discounted */}
               <div className="mb-6 p-4 bg-earth-light/10 rounded-lg border border-earth-light/20">
                 {hasDiscount ? (
                   <div>
@@ -177,7 +297,7 @@ const ProductDetail = () => {
                 )}
               </div>
               
-              {/* New: Delivery information */}
+              {/* Delivery information */}
               <div className="mb-6 flex items-center gap-2 text-sm text-earth-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-leaf-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="16" height="13" x="4" y="4" rx="2" />
@@ -208,7 +328,7 @@ const ProductDetail = () => {
                 </ul>
               </div>
               
-              {/* New: Quantity selector (non-functional for demo) */}
+              {/* Quantity selector */}
               <div className="mb-6">
                 <label className="block text-sm font-medium mb-2">Quantity:</label>
                 <div className="flex items-center w-32">
@@ -392,7 +512,6 @@ const ProductDetail = () => {
                 </p>
               </div>
               <div>
-                {/* Add review button - non-functional for demo */}
                 <Button variant="outline">Write a Review</Button>
               </div>
             </div>
@@ -442,11 +561,11 @@ const ProductDetail = () => {
                           />
                         </Link>
                         
-                        {/* New: Discount tag on related products */}
-                        {p.id % 2 === 1 && (
+                        {/* Discount tag on related products */}
+                        {p.discount > 0 && (
                           <div className="absolute top-2 left-2 bg-terracotta text-white rounded-full py-1 px-2 text-xs font-bold flex items-center">
                             <BadgePercent className="h-3 w-3 mr-0.5" />
-                            {(p.id * 5) % 20 + 5}% OFF
+                            {p.discount}% OFF
                           </div>
                         )}
                       </div>
@@ -459,17 +578,15 @@ const ProductDetail = () => {
                             </Link>
                             <p className="text-muted-foreground">Size: {p.size}</p>
                             
-                            {/* New: Stock indicator */}
-                            <Badge variant="outline" className="mt-1 text-xs">
-                              {p.id % 3 === 0 ? 'Low Stock' : 'In Stock'}
-                            </Badge>
+                            {/* Stock indicator */}
+                            <Badge variant="outline" className="mt-1 text-xs">In Stock</Badge>
                           </div>
                           <div>
-                            {/* New: Show original and discounted price */}
-                            {p.id % 2 === 1 ? (
+                            {/* Show original and discounted price */}
+                            {p.discount > 0 ? (
                               <>
                                 <span className="text-sm text-muted-foreground line-through block text-right">
-                                  ₹{Math.round(p.price * (100 + ((p.id * 5) % 20 + 5)) / 100)}
+                                  ₹{Math.round(p.price * (100 + p.discount) / 100)}
                                 </span>
                                 <span className="text-lg font-bold text-terracotta-dark">₹{p.price}</span>
                               </>

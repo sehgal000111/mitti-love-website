@@ -1,11 +1,35 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { products } from '@/models/Product';
 import { Link } from 'react-router-dom';
 import { Star, MessageCircle, BadgePercent, Check } from "lucide-react";
 import { Badge } from '@/components/ui/badge';
 
 const ProductShowcase = () => {
+  // Static product data
+  const products = [
+    {
+      id: 1,
+      name: "Clay Water Dispenser",
+      size: "4L",
+      price: 1000,
+      rating: 4.7,
+      reviewCount: 3,
+      mainImage: "/claypot1.png",
+      discount: 15
+    },
+    {
+      id: 2,
+      name: "Clay Water Dispenser",
+      size: "8L",
+      price: 2000,
+      rating: 4.8,
+      reviewCount: 5,
+      mainImage: "/claypot2v2.png",
+      discount: 0
+    }
+  ];
+
   return (
     <section id="products" className="page-section container mx-auto px-4 relative">
       {/* Add background image with subtle opacity */}
@@ -43,7 +67,7 @@ const ProductShowcase = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {products.map((product) => (
           <div key={product.id} className="product-card p-6">
             <div className="relative mb-4">
@@ -55,26 +79,20 @@ const ProductShowcase = () => {
                 />
               </Link>
               
-              {/* New: Discount tag */}
-              {product.id % 2 === 1 && (
+              {/* Discount tag */}
+              {product.discount > 0 && (
                 <div className="absolute top-2 left-2 bg-terracotta text-white rounded-full py-1 px-3 font-bold text-sm flex items-center">
                   <BadgePercent className="h-3 w-3 mr-1" />
-                  {(product.id * 5) % 20 + 5}% OFF
+                  {product.discount}% OFF
                 </div>
               )}
               
-              {/* New: Stock status */}
+              {/* Stock status */}
               <div className="absolute bottom-2 right-2">
-                <Badge className={`text-xs font-medium ${product.id % 3 === 0 ? 'bg-amber-100 text-amber-800 hover:bg-amber-100' : 'bg-leaf-light text-leaf-dark hover:bg-leaf-light'}`}>
+                <Badge className="text-xs font-medium bg-leaf-light text-leaf-dark hover:bg-leaf-light">
                   <span className="flex items-center">
-                    {product.id % 3 === 0 ? (
-                      'Low Stock'
-                    ) : (
-                      <>
-                        <Check className="h-3 w-3 mr-1" />
-                        In Stock
-                      </>
-                    )}
+                    <Check className="h-3 w-3 mr-1" />
+                    In Stock
                   </span>
                 </Badge>
               </div>
@@ -102,15 +120,15 @@ const ProductShowcase = () => {
                     </div>
                     <span className="text-xs text-muted-foreground ml-2 flex items-center gap-1">
                       <MessageCircle className="h-3 w-3" />
-                      {product.reviews.length} reviews
+                      {product.reviewCount} reviews
                     </span>
                   </div>
                 </div>
                 <div className="text-right">
-                  {/* New: Show original and discounted price */}
-                  {product.id % 2 === 1 ? (
+                  {/* Show original and discounted price */}
+                  {product.discount > 0 ? (
                     <>
-                      <span className="text-sm text-muted-foreground line-through">₹{Math.round(product.price * (100 + ((product.id * 5) % 20 + 5)) / 100)}</span>
+                      <span className="text-sm text-muted-foreground line-through">₹{Math.round(product.price * (100 + product.discount) / 100)}</span>
                       <span className="text-xl font-bold text-earth-dark block">₹{product.price}</span>
                     </>
                   ) : (
