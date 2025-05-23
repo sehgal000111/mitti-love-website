@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -328,21 +327,7 @@ const ProductDetail = () => {
                 </ul>
               </div>
               
-              {/* Quantity selector */}
-              <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Quantity:</label>
-                <div className="flex items-center w-32">
-                  <button className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l">-</button>
-                  <input
-                    type="number" 
-                    className="w-full h-8 border-t border-b border-gray-300 text-center" 
-                    defaultValue={1}
-                    min={1}
-                  />
-                  <button className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r">+</button>
-                </div>
-              </div>
-              
+              {/* Buy Now button - removed quantity selector */}
               <Button 
                 className="w-full sm:w-auto bg-terracotta hover:bg-terracotta-dark text-white mb-3 py-6 text-lg" 
                 asChild
