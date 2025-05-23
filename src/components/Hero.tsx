@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="hero relative min-h-[calc(100vh-80px)] flex items-center"
   style={{
     background: `linear-gradient(rgba(20, 20, 20, 0.754), rgba(20, 19, 19, 0.383)),
-                 url("/hero_bg.png")`,
+                 url("/hero_bg2.png")`,
     backgroundPosition: ' center',
     backgroundSize: 'cover',
     backgroundRepeat:"no-repeat"
