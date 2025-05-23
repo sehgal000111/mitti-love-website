@@ -26,7 +26,7 @@ const ProductShowcase = () => {
       rating: 4.8,
       reviewCount: 5,
       mainImage: "/claypot2-v2.png",
-      discount: 0
+      discount: 10
     }
   ];
 
@@ -50,17 +50,17 @@ const ProductShowcase = () => {
         </p>
         <div className="flex justify-center gap-4">
           <img 
-            src="https://images.unsplash.com/photo-1565193298442-a26d2283bc0a?auto=format&fit=crop&q=80&w=200"
-            alt="Clay artisan at work"
-            className="w-20 h-20 object-cover rounded-full border-2 border-white"
-          />
-          <img 
-            src="https://images.unsplash.com/photo-1503146234394-631200675614?auto=format&fit=crop&q=80&w=200"
+            src="/claypoteryprocess.png"
             alt="Clay pottery process"
             className="w-20 h-20 object-cover rounded-full border-2 border-white"
           />
           <img 
-            src="https://images.unsplash.com/photo-1610701596061-e9573fc25ebb?auto=format&fit=crop&q=80&w=200"
+            src="/Indian_Artisan.png "
+            alt="Clay artisan at work"
+            className="w-20 h-20 object-cover rounded-full border-2 border-white"
+          />
+          <img 
+            src="/claypoterycreation.png"
             alt="Clay pot creation"
             className="w-20 h-20 object-cover rounded-full border-2 border-white"
           />
@@ -169,7 +169,7 @@ const ProductShowcase = () => {
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="md:w-1/3">
             <img 
-              src="https://images.unsplash.com/photo-1551833726-b6e4b4fa3592?auto=format&fit=crop&q=80"
+              src="/customerUser.png"
               alt="Customer using clay pot"
               className="rounded-lg shadow-sm w-full h-auto"
             />

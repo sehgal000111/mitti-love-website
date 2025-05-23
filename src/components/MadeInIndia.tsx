@@ -44,7 +44,7 @@ const MadeInIndia = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
               <img 
-                src="/images/artisan.jpg" 
+                src="/Indian_Artisan.png " 
                 alt="Indian Artisan Crafting Clay Pot" 
                 className="rounded-lg shadow-sm w-full h-auto object-cover aspect-video"
               />

@@ -41,6 +41,8 @@ const products = [
     mainImage: "/claypot1.png",
     images: [
       "/claypot1.png",
+      "/claypot1-v1.png",
+      "/claypot1v1.png",
     ],
     reviews: [
       {
