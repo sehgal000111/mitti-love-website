@@ -5,6 +5,14 @@
   padding: 2rem;
   text-align: center;
 }
+/* 
+.hero{
+  background:
+        linear-gradient(rgba(20, 20, 20, 0.754), rgba(20, 19, 19, 0.383)),
+        url("https://images.pexels.com/photos/270669/pexels-photo-270669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: left top;
+    background-size: cover;
+} */
 
 .logo {
   height: 6em;

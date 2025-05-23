@@ -41,9 +41,6 @@ const products = [
     mainImage: "/claypot1.png",
     images: [
       "/claypot1.png",
-      "/claypot1.png",
-      "/claypot1.png",
-      "/claypot1.png"
     ],
     reviews: [
       {
@@ -92,12 +89,11 @@ const products = [
       "Supports traditional craftsmanship",
       "Environmentally sustainable product"
     ],
-    mainImage: "/claypot2v2.png",
+    mainImage: "/claypot2-v2.png",
     images: [
-      "/claypot2.png",
+      "/claypot2-v2.png",
       "/claypot2v2.png",
       "/claypot2.png",
-      "/claypot2v2.png"
     ],
     reviews: [
       {

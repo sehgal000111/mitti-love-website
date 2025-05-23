@@ -5,7 +5,14 @@ import { Coffee, Phone } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-[url('/images/hero-bg.jpg')] bg-cover bg-center">
+    <section className="hero relative min-h-[calc(100vh-80px)] flex items-center"
+  style={{
+    background: `linear-gradient(rgba(20, 20, 20, 0.754), rgba(20, 19, 19, 0.383)),
+                 url("/hero_bg.png")`,
+    backgroundPosition: ' center',
+    backgroundSize: 'cover',
+    backgroundRepeat:"no-repeat"
+  }}>
       <div className="absolute inset-0 bg-black/25"></div>
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-xl">

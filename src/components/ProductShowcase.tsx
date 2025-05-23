@@ -25,7 +25,7 @@ const ProductShowcase = () => {
       price: 2000,
       rating: 4.8,
       reviewCount: 5,
-      mainImage: "/claypot2v2.png",
+      mainImage: "/claypot2-v2.png",
       discount: 0
     }
   ];
